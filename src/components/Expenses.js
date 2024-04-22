@@ -1,4 +1,5 @@
-
+// Write your code here
+import Card from "./Card"
 import "./Expenses.css"
 import ExpenseItem from "./ExpenseItem";
 
@@ -16,5 +17,4 @@ function Expenses(props) {
     </div>
   );
 }
-
 export default Expenses;
