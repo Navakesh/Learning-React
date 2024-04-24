@@ -17,7 +17,7 @@ const months=[
 const ExpenseDate=(props)=>{
     const month=months[props.date.getMonth()];
     const year=props.date.getFullYear()
-    const date = props.date.getDate().toString().padStart(2, '0');
+    const date = props.date.getDate()
 
     return(
     <div className="expense-date">
