@@ -1,5 +1,5 @@
 // Write your code at relevant places in the code below
-import React from 'react';
+import React,{useState} from 'react';
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from './components/NewExpense/NewExpense';
 
@@ -10,14 +10,17 @@ const App=() =>{
     { id: "3", date: new Date(2023, 10, 11), title: "Pen", price: 1 },
     { id: "4", date: new Date(2023, 1, 14), title: "Laptop", price: 200 },
   ];
-  const SaveNewExpenseDataHandler=(enteredNewExpenseData)=>{
-    console.log(enteredNewExpenseData)
+  const[newexpenses,setExpense]=useState(expenses)
+  const addExpenseHandler=(expense)=>{
+    setExpense((prevExpenseData)=>{
+      return [expense,...prevExpenseData]
+    })
   }
 
   return (
     <div>
-        <NewExpense onAddExpense={SaveNewExpenseDataHandler}/>
-        <Expenses expenses={expenses} />
+        <NewExpense onAddExpense={addExpenseHandler}/>
+        <Expenses expenses={newexpenses} />
     </div>
   );
 }
