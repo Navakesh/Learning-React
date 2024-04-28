@@ -16,6 +16,7 @@ const Expenses=(props) =>{
   return (
     <Card className="expenses">
       <ExpensesFilter selected={filteredYear} onChangeFilter={changeFilterHandler}/>
+      {filteredExpenses.length===0 && <p>No expenses Found</p>}
       {filteredExpenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
@@ -24,6 +25,7 @@ const Expenses=(props) =>{
           price={expense.price}
         />
       ))}
+      {filteredExpenses.length === 1 && <p>Only one expense here. Please add more</p>}
     </Card>
   );
 }
